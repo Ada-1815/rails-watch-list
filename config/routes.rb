@@ -7,4 +7,21 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # voir les listes
+  get 'lists', to: 'lists#index'
+
+  # créer une liste
+  get "lists/new", to: "lists#new"
+  post "lists", to: "lists#create"
+
+  # accéder à une liste
+  get "lists/:id", to: "lists#show", as: :list
+
+  # créer un bookmark
+   get "bookmarks/new", to: "bookmarks#new"
+  post "bookmarks", to: "bookmarks#create"
+
+  # effacer un bookmark
+  delete "bookmarks/:id", to: "bookmarks#destroy"
 end
